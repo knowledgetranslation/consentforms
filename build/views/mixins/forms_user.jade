@@ -1,0 +1,48 @@
+mixin form_signUp()
+  form(action="#{virtualDirectory}/register", method="post")
+    legend
+      span Enter your account information
+    ul
+      li
+        label(for="username") Email
+        br
+        input(id="username", name="username", type="text")
+      li
+        label(for="firstName") First Name
+        br
+        input(id="firstName", name="firstName", type="text")
+      li
+        label(for="lastName") Last Name
+        br
+        input(id="lastName", name="lastName", type="text")
+      li
+        label(for="password") Password
+        br
+        input(id="password", name="password", type="password")
+      li
+        input(id="submit", name="submit", type="submit", value="Submit")
+
+mixin form_login()
+  form(action="#{virtualDirectory}/login", method="post")
+    legend
+      span Enter your account information
+    ul
+      li
+        label(for="username") Email
+        br
+        input(id="username", name="username", type="text")
+      li
+        label(for="password") Password
+        br
+        input(id="password", name="password", type="password")
+      li
+        input(id="submit", name="submit", type="submit", value="Submit")
+
+mixin loginOrSignup()
+  unless locals.user
+    section.signup
+      h2 Sign up!
+      +form_signUp()
+  else
+    section.getStarted
+      h2 Get started!

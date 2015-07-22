@@ -1,0 +1,14 @@
+extends ../layouts/admin
+include ../mixins
+
+block head
+  +head("Hey")
+
+block content
+  +header("Register new user")
+    p Text
+  div.container
+    div.row
+      div.col-md-12
+        section.login
+      +form_signUp

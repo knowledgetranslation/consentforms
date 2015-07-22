@@ -1,0 +1,33 @@
+extends ../../layouts/admin
+include ../../mixins
+
+block head
+  +head(title)
+
+block content
+  +header("Consents")
+    p!= title + " - " + model.subTitle + " - " + model.institution
+  div.container
+    div.row
+      div.col-md-12
+        table(width="100%")
+          thead
+            tr
+              td Name
+              td Email
+              td Consent Given
+              td Telephone
+              td Date
+              td
+          each val, index in collection
+            tr
+              td= val.name
+              td= val.email
+              if val.consentGiven
+                td Yes
+              else
+                td No
+              td= val.telephone
+              td= moment(val.date).format("YYYY/MM/DD")
+              td
+                a(href="#{virtualDirectory}/consents/" + val._id + "/delete") Delete

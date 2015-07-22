@@ -1,0 +1,262 @@
+mixin form_consent(model)
+  form(action="#{virtualDirectory}/consentForms/#{model.id}/consents/new", method="post")
+    legend
+      span Enter your consent below
+    div.row
+      div.col-md-12
+        ul
+          li
+            p Please indicate if you'd like to give your consent
+            br
+            label(class="", for="consentGiven_yes")
+              input(id="consentGiven_yes", name="consentGiven", type="radio", value="1")
+              | Yes
+            label(class="", for="consentGiven_no")
+              input(id="consentGiven_no", name="consentGiven", type="radio", value="0")
+              | No
+          li
+            label(for="name") Name
+            br
+            input(id="name", name="name", type="text")
+          li
+            label(for="telephone") Telephone
+            br
+            input(id="telephone", name="telephone", type="text")
+          li
+            label(for="email") Email
+            br
+            input(id="email", name="email", type="text")
+          li
+            input(id="submit", name="submit", type="submit", value="Submit")
+
+mixin form_editConsentForm(model)
+  form(action="#{virtualDirectory}/consentForms/#{model._id}/edit", method="post")
+    legend
+      span Enter your consent form details
+    div.row
+      div.col-md-6
+        ul
+          li
+            label(for="slug") Slug
+            br
+            input(id="slug", readonly="true", name="slug", type="text", value="#{model.slug}")
+          li
+            label(for="email") Email
+            br
+            input(id="email", name="email", type="email", value="#{model.email}")
+          li
+            label(for="title") Title
+            br
+            input(id="title", name="title", type="text", value="#{model.title}")
+          li
+            label(for="shortTitle") Short Title
+            br
+            input(id="shortTitle", name="shortTitle", type="text", value="#{model.shortTitle}")
+          li
+            label(for="subTitle") Sub-title
+            br
+            input(id="subTitle", name="subTitle", type="text", value="#{model.subTitle}")
+          li
+            label(for="institution") Institution
+            br
+            input(id="institution", name="institution", type="text", value="#{model.institution}")
+          li
+            label(for="principalInvestigator") Principal Investigator
+            br
+            textarea(id="principalInvestigator", name="principalInvestigator")=model.principalInvestigator
+          li
+            label(for="qualifiedInvestigator") Qualified Investigator
+            br
+            textarea(id="qualifiedInvestigator", name="qualifiedInvestigator")=model.qualifiedInvestigator
+          li
+            label(for="coInvestigators") Co-Investigators
+            br
+            textarea(id="coInvestigators", name="coInvestigators")=model.coInvestigators
+          li
+            label(for="siteAddress") Study Site Address
+            br
+            textarea(id="siteAddress", name="siteAddress")=model.siteAddress
+      div.col-md-6
+        ul
+          li
+            label(for="introduction") Introduction
+            br
+            textarea(id="introduction", name="introduction")= model.introduction
+          li
+            label(for="purpose") Purpose
+            br
+            textarea(id="purpose", name="purpose")= model.purpose
+          li
+            label(for="description") Description
+            br
+            textarea(id="description", name="description")=model.description
+          li
+            label(for="whatsInvolved") What is Involved in Participating in the Study
+            br
+            textarea(id="whatsInvolved", name="whatsInvolved")=model.whatsInvolved
+          li
+            label(for="potentialHarms") Potential Harms
+            br
+            textarea(id="potentialHarms", name="potentialHarms")=model.potentialHarms
+          li
+            label(for="potentialBenefits") Potential Benefits
+            br
+            textarea(id="potentialBenefits", name="potentialBenefits")=model.potentialBenefits
+          li
+            label(for="confidentialityAndPrivacy") Confidentiality and Privacy
+            br
+            textarea(id="confidentialityAndPrivacy", name="confidentialityAndPrivacy")=model.confidentialityAndPrivacy
+          li
+            label(for="costsAndReimbursements") Costs And Reimbursements
+            br
+            textarea(id="costsAndReimbursements", name="costsAndReimbursements")=model.costsAndReimbursements
+          li
+            label(for="participationAndWithdrawal") Participation and Withdrawal
+            br
+            textarea(id="participationAndWithdrawal", name="participationAndWithdrawal")=model.participationAndWithdrawal
+          li
+            label(for="ethicsBoardContact") Ethics Board Contact
+            br
+            textarea(id="ethicsBoardContact", name="ethicsBoardContact")=model.ethicsBoardContact
+          li
+            label(for="studyContact") Study Contact
+            br
+            textarea(id="studyContact", name="studyContact")=model.studyContact
+          li
+            label(for="funding") Funding
+            br
+            textarea(id="funding", name="funding")=model.funding
+          li
+            label(for="sponsor") Sponsor
+            br
+            textarea(id="sponsor", name="sponsor")=model.sponsor
+          li
+            label(for="statementOfInvestigator") Statement of the Investigator
+            br
+            textarea(id="statementOfInvestigator", name="statementOfInvestigator")=model.statementOfInvestigator
+          li
+            label(for="consentBody") Consent Body
+            br
+            textarea(id="consentBody", name="consentBody")=model.consentBody
+          li
+            label(for="thankYouMessage") Thank you message
+            br
+            textarea(id="thankYouMessage", name="thankYouMessage")=model.thankYouMessage
+          li
+            input(id="submit", name="submit", type="submit", value="Submit")
+
+mixin form_createConsentForm
+  form(action="#{virtualDirectory}/consentForms", method="post")
+    legend
+      span Enter your consent form details
+    div.row
+      div.col-md-6
+        ul
+          li
+            label(for="slug") Slug
+            br
+            input(id="slug", readonly="true", name="slug", type="text")
+          li
+            label(for="slug") Contact Email
+            br
+            input(id="email", name="email", type="email")
+          li
+            label(for="title") Title
+            br
+            input(id="title", name="title", type="text")
+          li
+            label(for="shortTitle") Short Title
+            br
+            input(id="shortTitle", name="shortTitle", type="text")
+          li
+            label(for="subTitle") Sub-title
+            br
+            input(id="subTitle", name="subTitle", type="text")
+          li
+            label(for="institution") Institution
+            br
+            input(id="institution", name="institution", type="text")
+          li
+            label(for="principalInvestigator") Principal Investigator
+            br
+            textarea(id="principalInvestigator", name="principalInvestigator")
+          li
+            label(for="qualifiedInvestigator") Qualified Investigator
+            br
+            textarea(id="qualifiedInvestigator", name="qualifiedInvestigator")
+          li
+            label(for="coInvestigators") Co-Investigators
+            br
+            textarea(id="coInvestigators", name="coInvestigators")
+          li
+            label(for="siteAddress") Study Site Address
+            br
+            textarea(id="siteAddress", name="siteAddress")
+      div.col-md-6
+        ul
+          li
+            label(for="introduction") Introduction
+            br
+            textarea(id="introduction", name="introduction")
+          li
+            label(for="purpose") Purpose
+            br
+            textarea(id="purpose", name="purpose")
+          li
+            label(for="description") Description
+            br
+            textarea(id="description", name="description")
+          li
+            label(for="whatsInvolved") What is Involved in Participating in the Study
+            br
+            textarea(id="whatsInvolved", name="whatsInvolved")
+          li
+            label(for="potentialHarms") Potential Harms
+            br
+            textarea(id="potentialHarms", name="potentialHarms")
+          li
+            label(for="potentialBenefits") Potential Benefits
+            br
+            textarea(id="potentialBenefits", name="potentialBenefits")
+          li
+            label(for="confidentialityAndPrivacy") Confidentiality and Privacy
+            br
+            textarea(id="confidentialityAndPrivacy", name="confidentialityAndPrivacy")
+          li
+            label(for="costsAndReimbursements") Costs And Reimbursements
+            br
+            textarea(id="costsAndReimbursements", name="costsAndReimbursements")
+          li
+            label(for="participationAndWithdrawal") Participation and Withdrawal
+            br
+            textarea(id="participationAndWithdrawal", name="participationAndWithdrawal")
+          li
+            label(for="ethicsBoardContact") Ethics Board Contact
+            br
+            textarea(id="ethicsBoardContact", name="ethicsBoardContact")
+          li
+            label(for="studyContact") Study Contact
+            br
+            textarea(id="studyContact", name="studyContact")
+          li
+            label(for="funding") Funding
+            br
+            textarea(id="funding", name="funding")
+          li
+            label(for="sponsor") Sponsor
+            br
+            textarea(id="sponsor", name="sponsor")
+          li
+            label(for="statementOfInvestigator") Statement of the Investigator
+            br
+            textarea(id="statementOfInvestigator", name="statementOfInvestigator")
+          li
+            label(for="consentBody") Consent Body
+            br
+            textarea(id="consentBody", name="consentBody")
+          li
+            label(for="thankYouMessage") Thank you message
+            br
+            textarea(id="thankYouMessage", name="thankYouMessage")
+          li
+            input(id="submit", name="submit", type="submit", value="Submit")

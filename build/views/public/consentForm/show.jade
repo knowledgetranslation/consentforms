@@ -1,0 +1,74 @@
+extends ../../layouts/consent
+include ../../mixins
+
+block head
+  +head(title)
+
+block content
+  +header(title)
+    h2!= consentForm.subTitle + " - " + consentForm.institution
+  div.container
+    div.row
+      div.col-md-12
+        if consentForm.principalInvestigator
+          h3 Principal Investigator
+          div!= marked(consentForm.principalInvestigator)
+        if consentForm.qualifiedInvestigator
+          h3 Qualified Investigator
+          div!= marked(consentForm.qualifiedInvestigator)
+        if consentForm.coInvestigators
+          h3 Co-Investigators
+          div!= marked(consentForm.coInvestigators)
+        if consentForm.siteAddress
+          h3 Study Site Address
+          div!= marked(consentForm.siteAddress)
+        if consentForm.introduction
+          h3 Introduction
+          div!= marked(consentForm.introduction)
+        if consentForm.purpose
+          h3 Purpose and Background of the Research
+          div!= marked(consentForm.purpose)
+        if consentForm.description
+          h3 Description
+          div!= marked(consentForm.description)
+        if consentForm.whatsInvolved
+          h3 What is Involved in Participating in the Study
+          div!= marked(consentForm.whatsInvolved)
+        if consentForm.potentialHarms
+          h3 Potential Harms
+          div!= marked(consentForm.potentialHarms)
+        if consentForm.potentialBenefits
+          h3 Potential Benefits
+          div!= marked(consentForm.potentialBenefits)
+        if consentForm.confidentialityAndPrivacy
+          h3 Confidentiality and Privacy
+          div!= marked(consentForm.confidentialityAndPrivacy)
+        if consentForm.costsAndReimbursements
+          h3 Costs/Reimbursements
+          div!= marked(consentForm.costsAndReimbursements)
+        if consentForm.participationAndWithdrawal
+          h3 Participation and Withdrawal
+          div!= marked(consentForm.participationAndWithdrawal)
+        if consentForm.ethicsBoardContact
+          h3 Research Ethics Board Contact
+          div!= marked(consentForm.ethicsBoardContact)
+        if consentForm.studyContact
+          h3 Study Contact
+          div!= marked(consentForm.studyContact)
+        if consentForm.statementOfInvestigator
+          h3 Statement of the Investigator
+          div!= marked(consentForm.statementOfInvestigator)
+        if consentForm.funding
+          h3 Funding
+          div!= marked(consentForm.funding)
+        if consentForm.sponsor
+          h3 Sponsor
+          div!= marked(consentForm.sponsor)
+        hr
+        h3 Consent
+        dl
+          dt
+            Study Title
+          dd= consentForm.title
+        div!= marked(consentForm.consentBody)
+          +form_consent(consentForm)

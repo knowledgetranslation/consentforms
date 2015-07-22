@@ -1,0 +1,38 @@
+extends ../layouts/admin
+include ../mixins
+
+block head
+  +head(title)
+
+block content
+  +header(title)
+    p Text
+    div.createNew
+      a(class="btn btn-primary", href="#{virtualDirectory}/consentForms/new", role="button") Create new consent form
+  div.container
+    div.row
+      div.col-md-12
+        table(width="100%")
+          thead
+            tr
+              td Title
+              td Sub-title
+              td Institution
+              td Consents
+              td
+          each val, index in consentForms
+            tr
+              td
+                a(href="#{virtualDirectory}/consentForms/" + val.slug)!= val.title
+              td= val.subTitle
+              td= val.institution
+              if val.consents != null
+                td= val.consents.length
+              else
+                td= 0
+              td
+                a(href="#{virtualDirectory}/consentForms/" + val._id + "/consents") List
+                | &nbsp;|&nbsp;
+                a(href="#{virtualDirectory}/consentForms/" + val._id + "/edit") Edit
+                | &nbsp;|&nbsp;
+                a(href="#{virtualDirectory}/consentForms/" + val._id + "/delete") Delete

@@ -1,0 +1,7 @@
+mixin head(title)
+  title= title
+  link(href="#{virtualDirectory}/bower_components/bootstrap/dist/css/bootstrap.css", rel='stylesheet')
+  link(href="#{virtualDirectory}/css/base.css", rel='stylesheet')
+  script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+  script(src="#{virtualDirectory}/bower_components/bootstrap-wysiwyg/bootstrap-wysiwyg.js")
+  script(src="#{virtualDirectory}/js/app.js")

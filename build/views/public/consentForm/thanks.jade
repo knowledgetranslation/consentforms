@@ -1,0 +1,14 @@
+extends ../../layouts/consent
+include ../../mixins
+
+block head
+  +head(consentForm.title)
+
+block content
+  +header(consentForm.title)
+    p= consentForm.subTitle
+    p= consentForm.institution
+  div.container
+    div.row
+      div.col-md-12
+        div!= consentForm.thankYouMessage

@@ -1,0 +1,17 @@
+extends ../../layouts/admin
+include ../../mixins
+
+block head
+  +head(title)
+
+block content
+  +header(title)
+    p Text
+  div.container
+    div.row
+      div.col-md-12
+        section.register
+          if locals.user
+            +form_createConsentForm
+          else
+            +loginOrSignup

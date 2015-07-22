@@ -1,0 +1,14 @@
+extends ../layouts/admin
+include ../mixins
+
+block head
+  +head("Hey")
+
+block content
+  +header("Login")
+    p Text
+  div.container
+    div.row
+      div.col-md-12
+        section.login
+          +form_login
