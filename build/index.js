@@ -58,6 +58,10 @@ app.set('view engine', 'jade');
 
 app.locals.virtualDirectory = '/forms';
 
+if (process.argv[2] === "debug") {
+  app.locals.virtualDirectory = '';
+}
+
 var Account = require("./models/account");
 var Consent = require("./models/consent");
 var ConsentForm = require("./models/consent_form");
@@ -67,8 +71,7 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 function ensureLoggedIn (req, res, next) {
-  console.log(req.user);
-  if (req.user) {
+  if (req.user || process.argv[2] === "debug") {
     next();
   }
   else
